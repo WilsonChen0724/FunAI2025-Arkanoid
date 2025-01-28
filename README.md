@@ -1,5 +1,112 @@
 # Arkanoid 打磚塊
 
+**This project is related to the homework assigned by Fun AI 2025 camp. See the original repository for latest and further details** 
+- **[arkanoid link](https://github.com/PAIA-Playful-AI-Arena/arkanoid)**
+- **version of this project：** 3.0.1
+
+## Set up virtual environment(recommended) (Applicable to arkanoid version 3.0.1)
+### Windows
+```python
+# 新建 MLGame 資料夾, 所有遊戲可以放在這裡 (Ex. Racing_car)
+mkdir MLGame 
+cd MLGame
+
+# 建立虛擬環境
+python -m venv funai
+# 進入虛擬環境(在MLGame中執行)
+.\funai\Scripts\activate.bat
+
+# 安裝需要的套件 (請一定要從上到下逐行執行)
+pip install mlgame
+pip install gymnasium
+pip install scikit-learn
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118 # 安裝 pytorch (eg. cuda 11.8)
+pip install stable-baselines3
+pip install numpy==1.26.4
+```
+### Mac
+```python
+# 新建 MLGame 資料夾, 所有遊戲可以放在這裡 (Ex. Racing_car)
+mkdir MLGame 
+cd MLGame
+
+# 建立虛擬環境
+python3 -m venv funai
+# 進入虛擬環境
+source funai/bin/activate
+
+# 安裝需要的套件 (請一定要從上到下逐行執行)
+pip install mlgame
+pip install gymnasium
+pip install scikit-learn
+pip install torch torchvision torchaudio
+pip install stable-baselines3
+pip install numpy==1.26.4
+```
+
+### Linux
+```python
+# 新建 MLGame 資料夾, 所有遊戲可以放在這裡 (Ex. Racing_car)
+mkdir MLGame 
+cd MLGame
+
+# 安裝對應的 python 虛擬環境
+sudo apt install python3.10-venv
+# 進入虛擬環境
+python3.10 -m venv funai 
+# 進入虛擬環境
+source funai/bin/activate 
+
+# 安裝需要的套件 (請一定要從上到下逐行執行)
+pip install mlgame
+pip install gym
+pip install scikit-learn
+pip install torch torchvision torchaudio
+pip install stable-baselines3
+pip install numpy==1.26.4
+```
+
+## Game commands
+
+**Open the cmd/powershell/Terminal in the arkanoid folder and execute the lines below regarding your needs.**
+
+  - **玩遊戲指令** 
+  ```python
+    python -m mlgame -f 120 -i ./ml/ml_play_template.py . --level 5
+  ```
+  - **手動玩遊戲指令** 
+  ```python
+    python -m mlgame -f 120 -i ./ml/ml_play_manual.py . --level 5
+  ```
+  - **蒐集遊戲指令+不顯示畫面(--nd)** 
+  ```python
+    python -m mlgame -f 120 --nd -i ./ml/play.py . --level 5
+  ```
+  - **訓練遊戲（不需要用到 MLGame 框架）** 
+  ```python
+    python ml/model_train_classification.py 
+  ```
+  - **訓練後玩遊戲指令** 
+  ```python
+    python -m mlgame -f 120 -i ./ml/model_play_classification.py . --level 5
+  ```
+
+## About homework and ML
+
+First is the `play.py` file in ml folder. I wrote the "rule" code to get the data for training.  
+The data are saved at `log` folder.    
+
+Then is the ML part also done by me, there is only a Decision Tree model (with discrete outputs, which is directly the actions, thus classification).  
+You can write a different kind of model and use it if you want, just remember to adjust the commands when training and using the model to play the game.  
+**Note** that if your model is a regression model, please refer to the `model_play_classification.py` in the ml folder and write **another** piece of code that apply to regression models by yourself.  
+The trained model will be stored at the `save` folder.    
+
+The model I've trained can pass level 1,2, and 3 easily.    
+
+Other information such as the mechanics of the game are described in the README of the original source. Below are the information of the 3.0.1 version.
+At last, wish you a happy ML experience. ^_^
+
+# README of the root repository(version: 3.0.1)
 <img src="https://raw.githubusercontent.com/PAIA-Playful-AI-Arena/arkanoid/refs/heads/main/asset/logo.png" alt="logo" width="100"/> 
 
 ![arkanoid](https://img.shields.io/github/v/tag/PAIA-Playful-AI-Arena/arkanoid)
@@ -30,7 +137,7 @@
 # main.py 
 game = Arkanoid(level=3, level_file=None)
 ```
-- `level`：指定關卡地圖。可以指定的關卡地圖皆在 `./asset/level_data/` 裡
+- `level`：指定關卡地圖。可以指定的關卡地圖皆在 `./asset/level_data/` 裡 總共有24關
 - `level_file`：也可以使用自己設計的關卡地圖。
 
 
