@@ -1,6 +1,6 @@
 # Arkanoid 打磚塊
 
-**This project is related to the homework assigned by Fun AI 2025 camp. See the original repository for latest and further details** 
+**This project is related to the homework assigned by Fun AI 2025 camp. See the original repository for latest and further details.** 
 - **[arkanoid link](https://github.com/PAIA-Playful-AI-Arena/arkanoid)**
 - **version of this project：** 3.0.1
 
