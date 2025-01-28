@@ -188,7 +188,8 @@ game = Arkanoid(level=3, level_file=None)
 - 球的 `X軸` 速度會因為接球時板子的移動方向而改變：
   1. 板子與球的移動方向`相同`，球的 `X軸` 速度會增為 `±10`，可以一次打掉硬磚塊
   2. 板子與球的移動方向`相反`，球會被打回`反方向`，速度為 `±7`
-  3. 板子不動，球依照反彈原理反彈，速度為 `±7`
+  3. 板子不動，球依照反彈原理反彈，速度為 `±7`  
+ **Note that the speed on the y direction of the chopped ball is wrong, please just consider the description (i)**
 
 # 自訂關卡地圖
 除了 PAIA 提供的關卡，你也可以嘗試自行設計關卡，讓磚塊出現在不同位置來營造更多遊戲樂趣，也可以使用[地圖編輯器](https://raw.githubusercontent.com/PAIA-Playful-AI-Arena/arkanoid/refs/heads/main/asset/tool/arkanoid_map_editor.exe)自行編輯地圖。
